@@ -1,6 +1,6 @@
 *,
-*::after,
-*::before {
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -16,28 +16,44 @@ header {
 main {
   display: flex;
   flex-direction: column;
-  align-items: center;
   margin: 10px;
 }
 
 form {
-  margin: auto;
+  display: flex;
+  padding: 15px;
+}
+
+.itemButton {
+  margin-left: 5px;
+  flex: 1;
+}
+
+#newItem {
+  flex: 2;
 }
 
 input {
   padding: 5px;
 }
 
+input[type="checkbox"] {
+  transform: scale(1.5);
+  margin: 5px 10px 5px 5px;
+}
+
 li {
+  display: flex;
+  align-items: center;
   list-style: none;
   margin: 5px;
-  padding: 10px 5px;
+  padding: 10px;
   border: 1px solid #333;
   background-color: #ddd;
 }
 
 ul {
-  margin: 10px;
+  padding: 10px;
   width: 100%;
 }
 

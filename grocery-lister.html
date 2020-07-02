@@ -13,10 +13,26 @@
   </header>
   <main>
     <form id="addForm" onSubmit="return false">
-      <input type="text" id="newItem" placeholder="New Grocery Item"/>
-      <input type="button" value="Add Item" id="addButton" />
+      <input
+        type="text"
+        id="newItem"
+        placeholder="New Grocery Item"
+      />
+      <input
+        type="button"
+        value="Add Item"
+        id="addButton"
+        class="itemButton"
+      />
+      <input
+        type="button"
+        value="Delete Checked"
+        id="removeButton"
+        class="itemButton"
+      />
+
     </form>
-    <ul id="grocery-list">
+    <ul id="groceryList">
     </ul>
   </main>
   <script src="lister.js"></script>
