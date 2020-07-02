@@ -16,16 +16,17 @@ header {
 main {
   display: flex;
   flex-direction: column;
-  margin: 10px;
+  margin: 0 10px;
 }
 
 form {
   display: flex;
-  padding: 15px;
+  flex-direction: column;
+  padding: 20px 0;
 }
 
 .itemButton {
-  margin-left: 5px;
+  margin-top: 5px;
   flex: 1;
 }
 
@@ -42,24 +43,35 @@ input[type="checkbox"] {
   margin: 5px 10px 5px 5px;
 }
 
+ul {
+  margin-top: -10px;
+  width: 100%;
+}
+
 li {
   display: flex;
   align-items: center;
   list-style: none;
-  margin: 5px;
+  margin: 10px 0;
   padding: 10px;
   border: 1px solid #333;
   background-color: #ddd;
 }
 
-ul {
-  padding: 10px;
-  width: 100%;
-}
-
 @media (min-width: 520px) {
   main {
     width: 500px;
-    margin: 10px auto;
+    margin: auto;
   }
+
+  form {
+    flex-direction: row;
+  }
+
+  .itemButton {
+    margin-left: 5px;
+    margin-top: 0;
+  }
+
+
 }
