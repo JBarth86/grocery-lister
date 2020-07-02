@@ -1,0 +1,49 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  background-color: #333;
+  text-align: center;
+  color: #fff;
+  padding: 10px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+
+form {
+  margin: auto;
+}
+
+input {
+  padding: 5px;
+}
+
+li {
+  list-style: none;
+  margin: 5px;
+  padding: 10px 5px;
+  border: 1px solid #333;
+  background-color: #ddd;
+}
+
+ul {
+  margin: 10px;
+  width: 100%;
+}
+
+@media (min-width: 520px) {
+  main {
+    width: 500px;
+    margin: 10px auto;
+  }
+}
