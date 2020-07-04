@@ -1,3 +1,5 @@
+const GROCERIES = "groceries"
+
 if (document.readyState == "loading") {
   document.addEventListener("DOMContentLoaded", ready)
 }
@@ -8,6 +10,15 @@ else {
 function ready() {
   addSubmitListener()
   addDeleteListener()
+
+  let groceries = JSON.parse(localStorage.getItem(GROCERIES))
+
+  if(groceries) {
+    groceries.forEach(addItemToList)
+  }
+  else {
+    localStorage.setItem(GROCERIES, JSON.stringify([]))
+  }
 }
 
 function addSubmitListener() {
@@ -16,20 +27,17 @@ function addSubmitListener() {
 }
 
 function addItem() {
-  let newItem = document.getElementById("newItem")
-  let list = document.getElementById("groceryList")
-  let li = document.createElement("li")
-  let checkbox = document.createElement("input")
-  checkbox.type = "checkbox"
-  checkbox.name = "select"
-  checkbox.classList.add("checkbox-delete")
-  checkbox.addEventListener('click', checkboxListener)
+  let groceries= JSON.parse(localStorage.getItem(GROCERIES))
+  let newItemInput = document.getElementById("newItem")
+  let newItem = newItemInput.value.trim()
 
-  li.appendChild(checkbox)
-  li.appendChild(document.createTextNode(newItem.value))
-  list.appendChild(li)
+  if(!groceries.includes(newItem) && newItem) {
+    groceries.push(newItem)
+    localStorage.setItem(GROCERIES, JSON.stringify(groceries))
+    addItemToList(newItem)
+  }
 
-  newItem.value = ""
+  newItemInput.value = ''
 }
 
 function enterItem(e) {
@@ -60,4 +68,18 @@ function deleteItems() {
       checkbox.parentElement.remove()
     }
   })
+}
+
+function addItemToList(item) {
+  let list = document.getElementById("groceryList")
+  let li = document.createElement("li")
+  let checkbox = document.createElement("input")
+  checkbox.type = "checkbox"
+  checkbox.name = "select"
+  checkbox.classList.add("checkbox-delete")
+  checkbox.addEventListener('click', checkboxListener)
+
+  li.appendChild(checkbox)
+  li.appendChild(document.createTextNode(item))
+  list.appendChild(li)
 }
