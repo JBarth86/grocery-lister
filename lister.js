@@ -62,12 +62,17 @@ function addDeleteListener() {
 
 function deleteItems() {
   let checkBoxes = Array.from(document.getElementsByClassName("checkbox-delete"))
+  let groceries = JSON.parse(localStorage.getItem(GROCERIES))
 
   checkBoxes.forEach(checkbox => {
     if(checkbox.checked) {
+      let item = checkbox.parentElement.textContent
+      groceries.splice(groceries.indexOf(item), 1)
       checkbox.parentElement.remove()
     }
   })
+
+  localStorage.setItem(GROCERIES, JSON.stringify(groceries))
 }
 
 function addItemToList(item) {
